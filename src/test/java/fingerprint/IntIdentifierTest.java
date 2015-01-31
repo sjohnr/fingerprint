@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fingerprint.identifier.IntIdentifier;
+
 public class IntIdentifierTest {
     @Test
     public void testGetBytes() {

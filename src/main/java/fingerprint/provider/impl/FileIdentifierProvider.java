@@ -8,8 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
 
-import fingerprint.BigIntegerIdentifier;
 import fingerprint.Identifier;
+import fingerprint.identifier.BigIntegerIdentifier;
 import fingerprint.provider.IdentifierProvider;
 
 public class FileIdentifierProvider implements IdentifierProvider {

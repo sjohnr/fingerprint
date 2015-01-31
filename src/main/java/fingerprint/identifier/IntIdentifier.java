@@ -1,6 +1,8 @@
-package fingerprint;
+package fingerprint.identifier;
 
 import java.math.BigInteger;
+
+import fingerprint.Identifier;
 
 public class IntIdentifier implements java.io.Serializable, Identifier {
 	private static final long serialVersionUID = 1L;
