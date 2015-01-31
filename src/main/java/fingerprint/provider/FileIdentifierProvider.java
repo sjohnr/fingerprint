@@ -1,4 +1,4 @@
-package fingerprint.provider.impl;
+package fingerprint.provider;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.math.BigInteger;
 
 import fingerprint.Identifier;
+import fingerprint.IdentifierProvider;
 import fingerprint.identifier.BigIntegerIdentifier;
-import fingerprint.provider.IdentifierProvider;
 
 public class FileIdentifierProvider implements IdentifierProvider {
 	private File file;

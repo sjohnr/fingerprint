@@ -1,6 +1,5 @@
-package fingerprint.provider;
+package fingerprint;
 
-import fingerprint.Identifier;
 
 public interface IdentifierProvider {
 	void setID(Identifier identifier);
