@@ -6,28 +6,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 
-import fingerprint.ServerIdentifier;
-import fingerprint.provider.ServerIdentifierProvider;
+import fingerprint.BigIntegerIdentifier;
+import fingerprint.Identifier;
+import fingerprint.provider.IdentifierProvider;
 
-public class FileServerIdentifierProvider implements ServerIdentifierProvider {
+public class FileIdentifierProvider implements IdentifierProvider {
 	private File file;
 	
-	public FileServerIdentifierProvider(File file) {
+	public FileIdentifierProvider(File file) {
 		this.file = file;
 	}
 	
-	public void setID(ServerIdentifier identifier) {
+	public void setID(Identifier identifier) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-			writer.write(String.valueOf(identifier.getID()));
+			writer.write(identifier.getID().toString());
 		} catch (IOException ex) {
 		    throw new RuntimeException("Unable to write file " + file + ":", ex);
 		}
 	}
 	
-	public ServerIdentifier getID() {
+	public Identifier getID() {
 		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-			return new ServerIdentifier(Integer.parseInt(reader.readLine()));
+			return new BigIntegerIdentifier(new BigInteger(reader.readLine()));
 		} catch (IOException ex) {
 			throw new RuntimeException("Unable to read file " + file + ":", ex);
 		} catch (NumberFormatException ex) {

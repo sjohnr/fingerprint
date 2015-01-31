@@ -1,15 +1,21 @@
 package fingerprint;
 
-public class ServerIdentifier implements java.io.Serializable {
+import java.math.BigInteger;
+
+public class IntIdentifier implements java.io.Serializable, Identifier {
 	private static final long serialVersionUID = 1L;
 	private final int id;
 	private transient byte[] raw;
 	
-	public ServerIdentifier(int id) {
+	public IntIdentifier(int id) {
 		this.id = id;
 	}
+    
+    public IntIdentifier(BigInteger id) {
+        this.id = id.intValue();
+    }
 	
-	public ServerIdentifier(byte[] identifier) {
+	public IntIdentifier(byte[] identifier) {
 		if (identifier.length != 4) {
 			throw new IllegalArgumentException("Invalid raw identifier: Must be 4 bytes!");
 		}
@@ -21,16 +27,18 @@ public class ServerIdentifier implements java.io.Serializable {
 				+ ((identifier[3] & 0xff));
 	}
 	
-	public int getID() {
-		return id;
+	@Override
+	public BigInteger getID() {
+		return new BigInteger(getBytes());
 	}
 	
+	@Override
 	public byte[] getBytes() {
 		if (raw == null) {
 			raw = new byte[4];
-			raw[0] = (byte) (id >>> 24);
-			raw[1] = (byte) (id >>> 16);
-			raw[2] = (byte) (id >>> 8);
+			raw[0] = (byte) (id >> 24);
+			raw[1] = (byte) (id >> 16);
+			raw[2] = (byte) (id >> 8);
 			raw[3] = (byte) (id);
 		}
 		return raw;
