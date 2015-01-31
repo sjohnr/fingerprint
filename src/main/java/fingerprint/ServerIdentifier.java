@@ -1,15 +1,15 @@
-package finterprint;
+package fingerprint;
 
-public class SID implements java.io.Serializable {
+public class ServerIdentifier implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private final int id;
 	private transient byte[] raw;
 	
-	public SID(int id) {
+	public ServerIdentifier(int id) {
 		this.id = id;
 	}
 	
-	public SID(byte[] identifier) {
+	public ServerIdentifier(byte[] identifier) {
 		if (identifier.length != 4) {
 			throw new IllegalArgumentException("Invalid raw identifier: Must be 4 bytes!");
 		}
