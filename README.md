@@ -16,6 +16,10 @@ Pluggable Providers
 
 **ZeroMQ**: Uses a ZeroMQ REQ/REP pipeline to request an ID from a service. The service can be a different server configured with another provider. This provider supports the configuration of multiple remote endpoints, to eliminate a single point of failure.
 
+**UUID**: Uses the `java.util.UUID` implementation to generate universally unique identifiers.
+
+**Composite**: Uses one or more other providers to generate a composite identifier. This provider is the core identifier generation mechanism of this library, and allows for fully configurable and customizable identifier generation.
+
 Identifier Generation
 ---------------------
 

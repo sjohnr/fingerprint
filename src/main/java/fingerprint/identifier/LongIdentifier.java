@@ -6,6 +6,7 @@ import fingerprint.Identifier;
 
 public class LongIdentifier implements java.io.Serializable, Identifier {
 	private static final long serialVersionUID = 1L;
+	
 	private final long id;
 	private transient byte[] raw;
 	

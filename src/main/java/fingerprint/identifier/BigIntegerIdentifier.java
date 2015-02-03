@@ -6,6 +6,7 @@ import fingerprint.Identifier;
 
 public class BigIntegerIdentifier implements java.io.Serializable, Identifier {
     private static final long serialVersionUID = 1L;
+    
     private final BigInteger id;
     private byte[] raw;
     
