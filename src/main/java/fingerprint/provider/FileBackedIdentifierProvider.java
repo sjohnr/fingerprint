@@ -6,7 +6,6 @@ import fingerprint.Identifier;
 import fingerprint.IdentifierProvider;
 
 public class FileBackedIdentifierProvider implements IdentifierProvider {
-//    private Identifier id;
     private FileIdentifierProvider file;
     private IdentifierProvider provider;
     
@@ -14,26 +13,23 @@ public class FileBackedIdentifierProvider implements IdentifierProvider {
         this.file = new FileIdentifierProvider(file);
         this.provider = provider;
     }
-
+    
     @Override
     public void setID(Identifier identifier) {
-//        this.id = identifier;
         file.setID(identifier);
     }
-
+    
     @Override
     public Identifier getID() {
-//        if (id == null) {
-            // get the identifier from file
-            Identifier id = file.getID();
-            
-            // if the identifier is not available, use another provider and
-            // persist to the file for future use
-            if (id == null) {
-                id = provider.getID();
-                file.setID(id);
-            }
-//        }
+        // get the identifier from file
+        Identifier id = file.getID();
+        
+        // if the identifier is not available, use another provider and
+        // persist to the file for future use
+        if (id == null) {
+            id = provider.getID();
+            file.setID(id);
+        }
         
         return id;
     }
