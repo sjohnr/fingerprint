@@ -8,15 +8,17 @@ Fingerprint supports the distributed generation of server identifiers (SIDs) and
 Pluggable Providers
 -------------------
 
-**MySQL**: Uses MySQL's auto-increment feature to generate and persist unique SIDs to allow for dynamic provisioning of cluster nodes. This provider can be configured to deliver IDs based on pre-defined base and step parameters, to eliminate a single point of failure.
-
 **File**: Uses a configuration file to obtain and/or persist unique SIDs. For example, the file `/opt/fingerprint/data/myid` can contain a single unique SID for the given server, or alternatively be used to store the unique SID obtained by another provider.
+
+**MySQL**: Uses MySQL's auto-increment feature to generate and persist unique SIDs to allow for dynamic provisioning of cluster nodes. This provider can be configured to deliver IDs based on pre-defined base and step parameters, to eliminate a single point of failure.
 
 **ZooKeeper**: Uses ZooKeeper as a coordination service to generate and persist unique SIDs to allow for dynamic provisioning of cluster nodes. The benefit of this provider is relatively simple configuration with no single point of failure, but requires a ZooKeeper cluster and accompanying connection parameters.
 
 **ZeroMQ**: Uses a ZeroMQ REQ/REP pipeline to request an ID from a service. The service can be a different server configured with another provider. This provider supports the configuration of multiple remote endpoints, to eliminate a single point of failure.
 
-**UUID**: Uses the `java.util.UUID` implementation to generate universally unique identifiers.
+**UUID**: Uses the `java.util.UUID` implementation to generate 128 bit universally unique identifiers.
+
+**SecureRandom**: Uses the `java.security.SecureRandom` utility to generate random identifiers with a specified length in bits.
 
 **Composite**: Uses one or more other providers to generate a composite identifier. This provider is the core identifier generation mechanism of this library, and allows for fully configurable and customizable identifier generation.
 
