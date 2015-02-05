@@ -5,11 +5,11 @@ import java.io.File;
 import fingerprint.Identifier;
 import fingerprint.IdentifierProvider;
 
-public class FileBackedIdentifierProvider implements IdentifierProvider {
+public class StaticIdentifierProvider implements IdentifierProvider {
     private FileIdentifierProvider file;
     private IdentifierProvider provider;
     
-    public FileBackedIdentifierProvider(File file, IdentifierProvider provider) {
+    public StaticIdentifierProvider(File file, IdentifierProvider provider) {
         this.file = new FileIdentifierProvider(file);
         this.provider = provider;
     }
