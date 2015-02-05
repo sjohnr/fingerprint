@@ -14,39 +14,39 @@ import fingerprint.IdentifierProvider;
 import fingerprint.identifier.IntIdentifier;
 
 public class StaticIdentifierProviderTest {
-    private File file = new File("/tmp/myid");
-    private IdentifierProvider provider;
-    
-    @Before
-    public void setUp() throws IOException {
-        provider = new StaticIdentifierProvider(file, new IntIdentifierProvider());
-    }
-    
-    @After
-    public void tearDown() {
-        file.delete();
-    }
-    
-    @Test
-    public void testGetID() {
-        Identifier id = provider.getID();
-        assertEquals(1, id.getID().intValue());
-        
-        // again...
-        id = provider.getID();
-        assertEquals(1, id.getID().intValue());
-    }
-    
-    @Test
-    public void testSetID() {
-        Identifier id = new IntIdentifier(2);
-        provider.setID(id);
-        
-        id = provider.getID();
-        assertEquals(2, id.getID().intValue());
-        
-        // again...
-        id = provider.getID();
-        assertEquals(2, id.getID().intValue());
-    }
+	private File file = new File("/tmp/myid");
+	private IdentifierProvider provider;
+	
+	@Before
+	public void setUp() throws IOException {
+		provider = new StaticIdentifierProvider(file, new IntIdentifierProvider());
+	}
+	
+	@After
+	public void tearDown() {
+		file.delete();
+	}
+	
+	@Test
+	public void testGetID() {
+		Identifier id = provider.getID();
+		assertEquals(1, id.getID().intValue());
+		
+		// again...
+		id = provider.getID();
+		assertEquals(1, id.getID().intValue());
+	}
+	
+	@Test
+	public void testSetID() {
+		Identifier id = new IntIdentifier(2);
+		provider.setID(id);
+		
+		id = provider.getID();
+		assertEquals(2, id.getID().intValue());
+		
+		// again...
+		id = provider.getID();
+		assertEquals(2, id.getID().intValue());
+	}
 }

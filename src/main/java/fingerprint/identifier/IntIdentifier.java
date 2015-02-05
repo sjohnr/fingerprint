@@ -13,10 +13,10 @@ public class IntIdentifier implements java.io.Serializable, Identifier {
 	public IntIdentifier(int id) {
 		this.id = id;
 	}
-    
-    public IntIdentifier(BigInteger id) {
-        this.id = id.intValue();
-    }
+	
+	public IntIdentifier(BigInteger id) {
+		this.id = id.intValue();
+	}
 	
 	public IntIdentifier(byte[] identifier) {
 		if (identifier.length != 4) {

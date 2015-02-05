@@ -16,35 +16,35 @@ import fingerprint.IdentifierProvider;
 import fingerprint.identifier.IntIdentifier;
 
 public class FileIdentifierProviderTest {
-    private File file = new File("/tmp/myid");
-    private IdentifierProvider provider;
-    
-    @Before
-    public void setUp() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write("1234");
-        }
-        
-        provider = new FileIdentifierProvider(file);
-    }
-    
-    @After
-    public void tearDown() {
-        file.delete();
-    }
-    
-    @Test
-    public void testGetID() {
-        Identifier id = provider.getID();
-        assertEquals("1234", id.getID().toString());
-    }
-    
-    @Test
-    public void testSetID() {
-        Identifier id = new IntIdentifier(1235);
-        provider.setID(id);
-        
-        id = provider.getID();
-        assertEquals("1235", id.getID().toString());
-    }
+	private File file = new File("/tmp/myid");
+	private IdentifierProvider provider;
+	
+	@Before
+	public void setUp() throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			writer.write("1234");
+		}
+		
+		provider = new FileIdentifierProvider(file);
+	}
+	
+	@After
+	public void tearDown() {
+		file.delete();
+	}
+	
+	@Test
+	public void testGetID() {
+		Identifier id = provider.getID();
+		assertEquals("1234", id.getID().toString());
+	}
+	
+	@Test
+	public void testSetID() {
+		Identifier id = new IntIdentifier(1235);
+		provider.setID(id);
+		
+		id = provider.getID();
+		assertEquals("1235", id.getID().toString());
+	}
 }
