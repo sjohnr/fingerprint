@@ -8,7 +8,7 @@ import fingerprint.Identifier;
 public class UUIDIdentifier implements java.io.Serializable, Identifier {
 	private static final long serialVersionUID = 1L;
 	
-	private final UUID id;
+	private final UUID uuid;
 	private byte[] raw;
 	
 	public UUIDIdentifier() {
@@ -16,7 +16,7 @@ public class UUIDIdentifier implements java.io.Serializable, Identifier {
 	}
 	
 	public UUIDIdentifier(UUID id) {
-		this.id = id;
+		this.uuid = id;
 	}
 	
 	@Override
@@ -27,8 +27,8 @@ public class UUIDIdentifier implements java.io.Serializable, Identifier {
 	public byte[] getBytes() {
 		if (raw == null) {
 			raw = new byte[16];
-			byte[] msb = new LongIdentifier(id.getMostSignificantBits()).getBytes();
-			byte[] lsb = new LongIdentifier(id.getLeastSignificantBits()).getBytes();
+			byte[] msb = new LongIdentifier(uuid.getMostSignificantBits()).getBytes();
+			byte[] lsb = new LongIdentifier(uuid.getLeastSignificantBits()).getBytes();
 			System.arraycopy(msb, 0, raw, 0, 8);
 			System.arraycopy(lsb, 0, raw, 8, 8);
 		}

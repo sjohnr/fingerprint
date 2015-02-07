@@ -8,15 +8,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fingerprint.Identifier;
-import fingerprint.IdentifierProvider;
 import fingerprint.identifier.UUIDIdentifier;
 
-public class UUIDIdentifierProviderTest {
-	private IdentifierProvider provider;
+public class RandomUUIDIdentifierProviderTest {
+	private RandomUUIDIdentifierProvider provider;
 	
 	@Before
 	public void setUp() throws IOException {
-		provider = new UUIDIdentifierProvider();
+		provider = new RandomUUIDIdentifierProvider();
 	}
 	
 	@Test
