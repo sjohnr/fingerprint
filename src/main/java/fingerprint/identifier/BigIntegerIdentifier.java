@@ -13,6 +13,11 @@ public class BigIntegerIdentifier implements java.io.Serializable, Identifier {
 	public BigIntegerIdentifier(BigInteger id) {
 		this.id = id;
 	}
+	
+	public BigIntegerIdentifier(byte[] raw) {
+		this.id = new BigInteger(raw);
+		this.raw = raw;
+	}
 
 	@Override
 	public BigInteger getID() {
