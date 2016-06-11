@@ -41,7 +41,7 @@ public class ZMQIdentifierServer {
 		private volatile boolean running = true;
 		
 		@Override
-		public void run(Context context, Socket socket, Object... args) {
+		public void run(Context context, Socket socket) {
 			Poller poller = context.buildPoller()
 				.withPollable(context.newPollable(socket, PollerType.POLL_IN), this)
 				.create();
